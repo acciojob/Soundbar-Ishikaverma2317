@@ -1,31 +1,28 @@
-// Collect all buttons
-const soundButtons = document.querySelectorAll(".btn");
-const stopBtn = document.querySelector(".stop");
+const soundNames = ["applause", "boo", "gasp", "tada", "victory", "wrong"];
 
-let audios = {};  
+let sounds = {};
 
-// Preload audios
-["sound1", "sound2", "sound3", "sound4", "sound5"].forEach(name => {
-  audios[name] = new Audio(`./sounds/${name}.mp3`);
+// preload all sounds
+soundNames.forEach(name => {
+  sounds[name] = new Audio(`./sounds/${name}.mp3`);
 });
 
-// Play audio on button click
-soundButtons.forEach(btn => {
+// play buttons
+document.querySelectorAll(".btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    let soundName = btn.getAttribute("data-sound");
-
-    stopAllSounds();  
-    audios[soundName].currentTime = 0;
-    audios[soundName].play();
+    let sound = btn.getAttribute("data-sound");
+    stopAll();
+    sounds[sound].currentTime = 0;
+    sounds[sound].play();
   });
 });
 
-// Stop button
-stopBtn.addEventListener("click", stopAllSounds);
+// stop button
+document.querySelector(".stop").addEventListener("click", stopAll);
 
-function stopAllSounds() {
-  Object.values(audios).forEach(a => {
-    a.pause();
-    a.currentTime = 0;
+function stopAll() {
+  soundNames.forEach(name => {
+    sounds[name].pause();
+    sounds[name].currentTime = 0;
   });
 }

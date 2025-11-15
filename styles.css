@@ -1,35 +1,38 @@
 body {
-  font-family: Arial;
-  text-align: center;
-  padding-top: 40px;
+  margin: 0;
+  background: #a05cd5; /* same purple shade from image */
+  font-family: Arial, sans-serif;
 }
 
 #buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 100vh;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 30px;
 }
 
-.btn, .stop {
-  padding: 15px 25px;
-  border: none;
-  background: #6200ee;
+.btn,
+.stop {
+  background: #5c2d91;
   color: white;
-  cursor: pointer;
+  padding: 18px 35px;
+  border: none;
   font-size: 18px;
   border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .btn:hover {
-  background: #4500b5;
+  background: #4a2076;
 }
 
 .stop {
-  background: red;
+  background: #b30000;
 }
 
 .stop:hover {
-  background: rgb(180, 0, 0);
+  background: #8a0000;
 }
